@@ -1,1 +1,1 @@
-# mobileHardware
+The file hardware(1).owl contains the data model of mobile phone hardware and how a hardware of mobile phone could be defined. The file ORSD.docx contains the purpose, scope, Implementation language, intended users and uses, funtional and non-functional requirements with competency questions. The file review.docx contains the information about pre-exsisting related mobilephone ontologies, their contributors and it explains how our ontology is different from exsisting ontologies.
