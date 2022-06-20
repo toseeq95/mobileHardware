@@ -9,6 +9,25 @@
 <http://www.hardwareonto.org> rdf:type owl:Ontology .
 
 #################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.hardwareonto.org#URL
+:URL rdf:type owl:AnnotationProperty ;
+     rdfs:comment "https://github.com/toseeq95/mobileHardware.git"^^xsd:anyURI .
+
+
+###  http://www.hardwareonto.org#author
+:author rdf:type owl:AnnotationProperty ;
+        rdfs:comment "Toseeq Sarwar"^^xsd:string .
+
+
+###  http://www.hardwareonto.org#description
+:description rdf:type owl:AnnotationProperty ;
+             rdfs:comment "The purpose of building the Reference Ontology is to provide a consensual knowledge model about the hardware specification of mobile.The ontology has to focus just on the hardware specification of mobile. The level of granularity is directly related to the competency questions and terms identified."^^xsd:string .
+
+
+#################################################################
 #    Object Properties
 #################################################################
 
