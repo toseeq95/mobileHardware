@@ -1,0 +1,1401 @@
+@prefix : <http://www.hardwareonto.org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.hardwareonto.org> .
+
+<http://www.hardwareonto.org> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.hardwareonto.org#hasABattery
+:hasABattery rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ,
+                      owl:AsymmetricProperty ;
+             rdfs:domain :Mobile ;
+             rdfs:range :Battery .
+
+
+###  http://www.hardwareonto.org#hasACPU
+:hasACPU rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdf:type owl:FunctionalProperty ,
+                  owl:AsymmetricProperty ;
+         rdfs:domain :Mobile ;
+         rdfs:range :CPU .
+
+
+###  http://www.hardwareonto.org#hasACharging_port
+:hasACharging_port rdf:type owl:ObjectProperty ,
+                            owl:FunctionalProperty ,
+                            owl:AsymmetricProperty ;
+                   rdfs:domain :Mobile ;
+                   rdfs:range :Charging_port .
+
+
+###  http://www.hardwareonto.org#hasADisplay
+:hasADisplay rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ,
+                      owl:AsymmetricProperty ;
+             rdfs:domain :Mobile ;
+             rdfs:range :Display .
+
+
+###  http://www.hardwareonto.org#hasAGPU
+:hasAGPU rdf:type owl:ObjectProperty ,
+                  owl:FunctionalProperty ,
+                  owl:AsymmetricProperty ;
+         rdfs:domain :Mobile ;
+         rdfs:range :Gpu .
+
+
+###  http://www.hardwareonto.org#hasAMemory
+:hasAMemory rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ,
+                     owl:AsymmetricProperty ;
+            rdfs:domain :Mobile ;
+            rdfs:range :Memory .
+
+
+###  http://www.hardwareonto.org#hasASensors
+:hasASensors rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ,
+                      owl:AsymmetricProperty ;
+             rdfs:domain :Mobile ;
+             rdfs:range :Sensors .
+
+
+###  http://www.hardwareonto.org#hasASpeaker
+:hasASpeaker rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ,
+                      owl:AsymmetricProperty ;
+             rdfs:domain :Mobile ;
+             rdfs:range :Speaker .
+
+
+###  http://www.hardwareonto.org#hasBackCamera
+:hasBackCamera rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :hasCamera ;
+               rdfs:domain :Mobile ;
+               rdfs:range :rear .
+
+
+###  http://www.hardwareonto.org#hasCamera
+:hasCamera rdf:type owl:ObjectProperty ;
+           rdfs:domain :Mobile ;
+           rdfs:range :Camera .
+
+
+###  http://www.hardwareonto.org#hasCameraType
+:hasCameraType rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Mobile ;
+               rdfs:range :CameraType .
+
+
+###  http://www.hardwareonto.org#hasFrontCamera
+:hasFrontCamera rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :hasCamera ;
+                rdfs:domain :Mobile ;
+                rdfs:range :front .
+
+
+###  http://www.hardwareonto.org#hasRAM
+:hasRAM rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :hasAMemory ;
+        rdfs:domain :Mobile ;
+        rdfs:range :RAM .
+
+
+###  http://www.hardwareonto.org#hasROM
+:hasROM rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :hasAMemory ;
+        rdfs:domain :Mobile ;
+        rdfs:range :ROM .
+
+
+###  http://www.hardwareonto.org#isFromCompany
+:isFromCompany rdf:type owl:ObjectProperty ;
+               rdfs:domain :Mobile ;
+               rdfs:range :company .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.hardwareonto.org#dimension
+:dimension rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :Mobile ;
+           rdfs:range rdfs:Literal .
+
+
+###  http://www.hardwareonto.org#releaseDate
+:releaseDate rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Mobile ;
+             rdfs:range rdfs:Literal .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.hardwareonto.org#Battery
+:Battery rdf:type owl:Class .
+
+
+###  http://www.hardwareonto.org#CPU
+:CPU rdf:type owl:Class .
+
+
+###  http://www.hardwareonto.org#Camera
+:Camera rdf:type owl:Class .
+
+
+###  http://www.hardwareonto.org#CameraType
+:CameraType rdf:type owl:Class .
+
+
+###  http://www.hardwareonto.org#Charging_port
+:Charging_port rdf:type owl:Class .
+
+
+###  http://www.hardwareonto.org#Display
+:Display rdf:type owl:Class .
+
+
+###  http://www.hardwareonto.org#Gpu
+:Gpu rdf:type owl:Class .
+
+
+###  http://www.hardwareonto.org#Memory
+:Memory rdf:type owl:Class .
+
+
+###  http://www.hardwareonto.org#Mobile
+:Mobile rdf:type owl:Class .
+
+
+###  http://www.hardwareonto.org#RAM
+:RAM rdf:type owl:Class ;
+     rdfs:subClassOf :Memory .
+
+
+###  http://www.hardwareonto.org#ROM
+:ROM rdf:type owl:Class ;
+     rdfs:subClassOf :Memory .
+
+
+###  http://www.hardwareonto.org#Sensors
+:Sensors rdf:type owl:Class .
+
+
+###  http://www.hardwareonto.org#Speaker
+:Speaker rdf:type owl:Class .
+
+
+###  http://www.hardwareonto.org#company
+:company rdf:type owl:Class .
+
+
+###  http://www.hardwareonto.org#front
+:front rdf:type owl:Class ;
+       rdfs:subClassOf :Camera .
+
+
+###  http://www.hardwareonto.org#rear
+:rear rdf:type owl:Class ;
+      rdfs:subClassOf :Camera .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.hardwareonto.org#A-Type
+:A-Type rdf:type owl:NamedIndividual ,
+                 :Charging_port .
+
+
+###  http://www.hardwareonto.org#Accelerometor
+:Accelerometor rdf:type owl:NamedIndividual ,
+                        :Sensors .
+
+
+###  http://www.hardwareonto.org#Adreno_506
+:Adreno_506 rdf:type owl:NamedIndividual ,
+                     :Gpu .
+
+
+###  http://www.hardwareonto.org#Adreno_660
+:Adreno_660 rdf:type owl:NamedIndividual ,
+                     :Gpu .
+
+
+###  http://www.hardwareonto.org#Adreno_730
+:Adreno_730 rdf:type owl:NamedIndividual ,
+                     :Gpu .
+
+
+###  http://www.hardwareonto.org#Apple
+:Apple rdf:type owl:NamedIndividual ,
+                :company .
+
+
+###  http://www.hardwareonto.org#Barometer
+:Barometer rdf:type owl:NamedIndividual ,
+                    :Sensors .
+
+
+###  http://www.hardwareonto.org#C-Type
+:C-Type rdf:type owl:NamedIndividual ,
+                 :Charging_port .
+
+
+###  http://www.hardwareonto.org#Compass
+:Compass rdf:type owl:NamedIndividual ,
+                  :Sensors .
+
+
+###  http://www.hardwareonto.org#Dual_Camera
+:Dual_Camera rdf:type owl:NamedIndividual ,
+                      :CameraType .
+
+
+###  http://www.hardwareonto.org#Fingerprint
+:Fingerprint rdf:type owl:NamedIndividual ,
+                      :Sensors .
+
+
+###  http://www.hardwareonto.org#Gyro
+:Gyro rdf:type owl:NamedIndividual ,
+               :Sensors .
+
+
+###  http://www.hardwareonto.org#Honor
+:Honor rdf:type owl:NamedIndividual ,
+                :company .
+
+
+###  http://www.hardwareonto.org#Honor_7C
+:Honor_7C rdf:type owl:NamedIndividual ,
+                   :Mobile ;
+          :hasABattery :LI-Po ;
+          :hasACPU :Octa-Core_Cortex ;
+          :hasACharging_port :C-Type ;
+          :hasADisplay :Adreno_506 ,
+                       :IPS_display ;
+          :hasASensors :Accelerometor ,
+                       :Compass ,
+                       :Fingerprint ,
+                       :Proximity ;
+          :hasBackCamera <http://www.hardwareonto.org#13MP> ;
+          :hasCameraType :Dual_Camera ;
+          :hasFrontCamera <http://www.hardwareonto.org#8MP> ;
+          :hasRAM <http://www.hardwareonto.org#3GB> ;
+          :hasROM <http://www.hardwareonto.org#32GB> ;
+          :isFromCompany :Honor ;
+          :dimension "158.3 x 76.7 x 7.8 mm"^^rdfs:Literal ;
+          :releaseDate "2018-04-31"^^rdfs:Literal .
+
+
+###  http://www.hardwareonto.org#Honor_7X
+:Honor_7X rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Honor_9
+:Honor_9 rdf:type owl:NamedIndividual ,
+                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei
+:Huawei rdf:type owl:NamedIndividual ,
+                 :company .
+
+
+###  http://www.hardwareonto.org#Huawei_Honor_6x
+:Huawei_Honor_6x rdf:type owl:NamedIndividual ,
+                          :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Mate_10
+:Huawei_Mate_10 rdf:type owl:NamedIndividual ,
+                         :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Mate_10_Lite
+:Huawei_Mate_10_Lite rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Mate_10_Pro
+:Huawei_Mate_10_Pro rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Mate_20_Pro
+:Huawei_Mate_20_Pro rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Mate_9
+:Huawei_Mate_9 rdf:type owl:NamedIndividual ,
+                        :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_MediaPad_T3_10
+:Huawei_MediaPad_T3_10 rdf:type owl:NamedIndividual ,
+                                :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_MediaPad_T3_7
+:Huawei_MediaPad_T3_7 rdf:type owl:NamedIndividual ,
+                               :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Nova_3
+:Huawei_Nova_3 rdf:type owl:NamedIndividual ,
+                        :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Nova_3i
+:Huawei_Nova_3i rdf:type owl:NamedIndividual ,
+                         :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Nova_7i
+:Huawei_Nova_7i rdf:type owl:NamedIndividual ,
+                         :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Nova_8_Pro
+:Huawei_Nova_8_Pro rdf:type owl:NamedIndividual ,
+                            :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Nova_9
+:Huawei_Nova_9 rdf:type owl:NamedIndividual ,
+                        :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_P10
+:Huawei_P10 rdf:type owl:NamedIndividual ,
+                     :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_P10_Lite
+:Huawei_P10_Lite rdf:type owl:NamedIndividual ,
+                          :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_P10_Plus
+:Huawei_P10_Plus rdf:type owl:NamedIndividual ,
+                          :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_P20_Lite
+:Huawei_P20_Lite rdf:type owl:NamedIndividual ,
+                          :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_P20_Pro
+:Huawei_P20_Pro rdf:type owl:NamedIndividual ,
+                         :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_P30
+:Huawei_P30 rdf:type owl:NamedIndividual ,
+                     :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_P30_Lite
+:Huawei_P30_Lite rdf:type owl:NamedIndividual ,
+                          :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_P30_Pro
+:Huawei_P30_Pro rdf:type owl:NamedIndividual ,
+                         :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_P9_Lite
+:Huawei_P9_Lite rdf:type owl:NamedIndividual ,
+                         :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_P_Smart
+:Huawei_P_Smart rdf:type owl:NamedIndividual ,
+                         :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Watch_Fit
+:Huawei_Watch_Fit rdf:type owl:NamedIndividual ,
+                           :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Watch_GT
+:Huawei_Watch_GT rdf:type owl:NamedIndividual ,
+                          :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y5_2019
+:Huawei_Y5_2019 rdf:type owl:NamedIndividual ,
+                         :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y5p
+:Huawei_Y5p rdf:type owl:NamedIndividual ,
+                     :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y6_Prime_2019
+:Huawei_Y6_Prime_2019 rdf:type owl:NamedIndividual ,
+                               :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y6p_Price_in_Pakistan
+:Huawei_Y6p_Price_in_Pakistan rdf:type owl:NamedIndividual ,
+                                       :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y7_Prime
+:Huawei_Y7_Prime rdf:type owl:NamedIndividual ,
+                          :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y7_Prime_2019
+:Huawei_Y7_Prime_2019 rdf:type owl:NamedIndividual ,
+                               :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y7_Prime_2019_SE
+:Huawei_Y7_Prime_2019_SE rdf:type owl:NamedIndividual ,
+                                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y7a
+:Huawei_Y7a rdf:type owl:NamedIndividual ,
+                     :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y7p
+:Huawei_Y7p rdf:type owl:NamedIndividual ,
+                     :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y9_2019
+:Huawei_Y9_2019 rdf:type owl:NamedIndividual ,
+                         :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y9_Prime_2019_64GB
+:Huawei_Y9_Prime_2019_64GB rdf:type owl:NamedIndividual ,
+                                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y9a
+:Huawei_Y9a rdf:type owl:NamedIndividual ,
+                     :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y9s_2019
+:Huawei_Y9s_2019 rdf:type owl:NamedIndividual ,
+                          :Mobile .
+
+
+###  http://www.hardwareonto.org#IPS_display
+:IPS_display rdf:type owl:NamedIndividual ,
+                      :Display .
+
+
+###  http://www.hardwareonto.org#Infinix
+:Infinix rdf:type owl:NamedIndividual ,
+                  :company .
+
+
+###  http://www.hardwareonto.org#LI-Po
+:LI-Po rdf:type owl:NamedIndividual ,
+                :Battery .
+
+
+###  http://www.hardwareonto.org#Lightening
+:Lightening rdf:type owl:NamedIndividual ,
+                     :Charging_port .
+
+
+###  http://www.hardwareonto.org#Mali-G78
+:Mali-G78 rdf:type owl:NamedIndividual ,
+                   :Gpu .
+
+
+###  http://www.hardwareonto.org#Nokia
+:Nokia rdf:type owl:NamedIndividual ,
+                :company .
+
+
+###  http://www.hardwareonto.org#OPPO
+:OPPO rdf:type owl:NamedIndividual ,
+               :company .
+
+
+###  http://www.hardwareonto.org#Octa-Core_Cortex
+:Octa-Core_Cortex rdf:type owl:NamedIndividual ,
+                           :CPU ;
+                  :hasABattery :LI-Po ;
+                  :hasACPU :Octa-Core_kryo ;
+                  :hasACharging_port :C-Type ;
+                  :hasASensors :Accelerometor ,
+                               :Barometer ;
+                  :hasASpeaker <http://www.hardwareonto.org#32bit/384kHz> .
+
+
+###  http://www.hardwareonto.org#Octa-Core_kryo
+:Octa-Core_kryo rdf:type owl:NamedIndividual ,
+                         :CPU .
+
+
+###  http://www.hardwareonto.org#Proximity
+:Proximity rdf:type owl:NamedIndividual ,
+                    :Sensors .
+
+
+###  http://www.hardwareonto.org#QMobile
+:QMobile rdf:type owl:NamedIndividual ,
+                  :company .
+
+
+###  http://www.hardwareonto.org#Quad_Camera
+:Quad_Camera rdf:type owl:NamedIndividual ,
+                      :CameraType .
+
+
+###  http://www.hardwareonto.org#Realme
+:Realme rdf:type owl:NamedIndividual ,
+                 :company .
+
+
+###  http://www.hardwareonto.org#Samsung
+:Samsung rdf:type owl:NamedIndividual ,
+                  :company .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A01
+:Samsung_Galaxy_A01 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A02
+:Samsung_Galaxy_A02 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A02_64GB
+:Samsung_Galaxy_A02_64GB rdf:type owl:NamedIndividual ,
+                                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A02s
+:Samsung_Galaxy_A02s rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A02s_4GB
+:Samsung_Galaxy_A02s_4GB rdf:type owl:NamedIndividual ,
+                                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A03
+:Samsung_Galaxy_A03 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A03_4GB
+:Samsung_Galaxy_A03_4GB rdf:type owl:NamedIndividual ,
+                                 :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A03_Core
+:Samsung_Galaxy_A03_Core rdf:type owl:NamedIndividual ,
+                                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A03s
+:Samsung_Galaxy_A03s rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A03s_4GB
+:Samsung_Galaxy_A03s_4GB rdf:type owl:NamedIndividual ,
+                                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A10
+:Samsung_Galaxy_A10 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A10s
+:Samsung_Galaxy_A10s rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A11_Price_in_Pakistan
+:Samsung_Galaxy_A11_Price_in_Pakistan rdf:type owl:NamedIndividual ,
+                                               :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A12
+:Samsung_Galaxy_A12 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A12_128GB
+:Samsung_Galaxy_A12_128GB rdf:type owl:NamedIndividual ,
+                                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A13
+:Samsung_Galaxy_A13 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A13_128GB
+:Samsung_Galaxy_A13_128GB rdf:type owl:NamedIndividual ,
+                                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A20s
+:Samsung_Galaxy_A20s rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A21s
+:Samsung_Galaxy_A21s rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A21s_128GB
+:Samsung_Galaxy_A21s_128GB rdf:type owl:NamedIndividual ,
+                                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A22
+:Samsung_Galaxy_A22 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A22_6GB
+:Samsung_Galaxy_A22_6GB rdf:type owl:NamedIndividual ,
+                                 :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A23
+:Samsung_Galaxy_A23 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A30s
+:Samsung_Galaxy_A30s rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A30s_128GB
+:Samsung_Galaxy_A30s_128GB rdf:type owl:NamedIndividual ,
+                                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A31
+:Samsung_Galaxy_A31 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A32
+:Samsung_Galaxy_A32 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A3_2017
+:Samsung_Galaxy_A3_2017 rdf:type owl:NamedIndividual ,
+                                 :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A51
+:Samsung_Galaxy_A51 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A51_8GB
+:Samsung_Galaxy_A51_8GB rdf:type owl:NamedIndividual ,
+                                 :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A52s_256GB
+:Samsung_Galaxy_A52s_256GB rdf:type owl:NamedIndividual ,
+                                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A5_2017
+:Samsung_Galaxy_A5_2017 rdf:type owl:NamedIndividual ,
+                                 :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A72_256GB
+:Samsung_Galaxy_A72_256GB rdf:type owl:NamedIndividual ,
+                                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A7_2017
+:Samsung_Galaxy_A7_2017 rdf:type owl:NamedIndividual ,
+                                 :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A7_2018
+:Samsung_Galaxy_A7_2018 rdf:type owl:NamedIndividual ,
+                                 :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A80
+:Samsung_Galaxy_A80 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Fold
+:Samsung_Galaxy_Fold rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Grand_Prime
+:Samsung_Galaxy_Grand_Prime rdf:type owl:NamedIndividual ,
+                                     :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Grand_Prime_Pro
+:Samsung_Galaxy_Grand_Prime_Pro rdf:type owl:NamedIndividual ,
+                                         :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_J5_Pro
+:Samsung_Galaxy_J5_Pro rdf:type owl:NamedIndividual ,
+                                :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_J6
+:Samsung_Galaxy_J6 rdf:type owl:NamedIndividual ,
+                            :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_J6_Plus
+:Samsung_Galaxy_J6_Plus rdf:type owl:NamedIndividual ,
+                                 :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_J7_Prime
+:Samsung_Galaxy_J7_Prime rdf:type owl:NamedIndividual ,
+                                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_M11_Price_in_Pakistan
+:Samsung_Galaxy_M11_Price_in_Pakistan rdf:type owl:NamedIndividual ,
+                                               :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_M31
+:Samsung_Galaxy_M31 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_M31s
+:Samsung_Galaxy_M31s rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Note20_Ultra
+:Samsung_Galaxy_Note20_Ultra rdf:type owl:NamedIndividual ,
+                                      :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Note_10
+:Samsung_Galaxy_Note_10 rdf:type owl:NamedIndividual ,
+                                 :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Note_10_Lite
+:Samsung_Galaxy_Note_10_Lite rdf:type owl:NamedIndividual ,
+                                      :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Note_10_Plus
+:Samsung_Galaxy_Note_10_Plus rdf:type owl:NamedIndividual ,
+                                      :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Note_20
+:Samsung_Galaxy_Note_20 rdf:type owl:NamedIndividual ,
+                                 :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Note_7
+:Samsung_Galaxy_Note_7 rdf:type owl:NamedIndividual ,
+                                :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Note_8
+:Samsung_Galaxy_Note_8 rdf:type owl:NamedIndividual ,
+                                :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Note_9
+:Samsung_Galaxy_Note_9 rdf:type owl:NamedIndividual ,
+                                :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_S10
+:Samsung_Galaxy_S10 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_S10_Plus
+:Samsung_Galaxy_S10_Plus rdf:type owl:NamedIndividual ,
+                                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_S20_Plus
+:Samsung_Galaxy_S20_Plus rdf:type owl:NamedIndividual ,
+                                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_S21FE
+:Samsung_Galaxy_S21FE rdf:type owl:NamedIndividual ,
+                               :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_S21_Plus
+:Samsung_Galaxy_S21_Plus rdf:type owl:NamedIndividual ,
+                                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_S21_Ultra
+:Samsung_Galaxy_S21_Ultra rdf:type owl:NamedIndividual ,
+                                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_S22
+:Samsung_Galaxy_S22 rdf:type owl:NamedIndividual ,
+                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_S22_Ultra
+:Samsung_Galaxy_S22_Ultra rdf:type owl:NamedIndividual ,
+                                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_S8
+:Samsung_Galaxy_S8 rdf:type owl:NamedIndividual ,
+                            :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_S9
+:Samsung_Galaxy_S9 rdf:type owl:NamedIndividual ,
+                            :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Z_Flip
+:Samsung_Galaxy_Z_Flip rdf:type owl:NamedIndividual ,
+                                :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Z_Flip_3
+:Samsung_Galaxy_Z_Flip_3 rdf:type owl:NamedIndividual ,
+                                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Z_Fold_2
+:Samsung_Galaxy_Z_Fold_2 rdf:type owl:NamedIndividual ,
+                                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Z_Fold_3
+:Samsung_Galaxy_Z_Fold_3 rdf:type owl:NamedIndividual ,
+                                  :Mobile ;
+                         :hasABattery :LI-Po ;
+                         :hasACPU :Octa-Core_kryo ;
+                         :hasACharging_port :C-Type ;
+                         :hasADisplay :dynamic_AMOLED ;
+                         :hasAGPU :Adreno_660 ;
+                         :hasASensors :Accelerometor ,
+                                      :Barometer ,
+                                      :Compass ,
+                                      :Fingerprint ,
+                                      :Proximity ;
+                         :hasCameraType :Triple_Camera ;
+                         :hasRAM <http://www.hardwareonto.org#12GB> ;
+                         :hasROM <http://www.hardwareonto.org#256GB> ;
+                         :isFromCompany :Samsung ;
+                         :dimension "151.7 x 71.2 x 7.9 mm"^^rdfs:Literal ;
+                         :releaseDate "2021-10-27"^^rdfs:Literal .
+
+
+###  http://www.hardwareonto.org#Sony
+:Sony rdf:type owl:NamedIndividual ,
+               :company .
+
+
+###  http://www.hardwareonto.org#Techno
+:Techno rdf:type owl:NamedIndividual ,
+                 :company .
+
+
+###  http://www.hardwareonto.org#Triple_Camera
+:Triple_Camera rdf:type owl:NamedIndividual ,
+                        :CameraType .
+
+
+###  http://www.hardwareonto.org#Vivo
+:Vivo rdf:type owl:NamedIndividual ,
+               :company .
+
+
+###  http://www.hardwareonto.org#Vivo_S1
+:Vivo_S1 rdf:type owl:NamedIndividual ,
+                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_S1_Pro
+:Vivo_S1_Pro rdf:type owl:NamedIndividual ,
+                      :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_V17
+:Vivo_V17 rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_V17_Pro
+:Vivo_V17_Pro rdf:type owl:NamedIndividual ,
+                       :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_V20
+:Vivo_V20 rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_V20_SE
+:Vivo_V20_SE rdf:type owl:NamedIndividual ,
+                      :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_V21
+:Vivo_V21 rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_V21e
+:Vivo_V21e rdf:type owl:NamedIndividual ,
+                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_V23
+:Vivo_V23 rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_V23e
+:Vivo_V23e rdf:type owl:NamedIndividual ,
+                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_X60_Pro
+:Vivo_X60_Pro rdf:type owl:NamedIndividual ,
+                       :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_X70_Pro
+:Vivo_X70_Pro rdf:type owl:NamedIndividual ,
+                       :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_X80
+:Vivo_X80 rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y01
+:Vivo_Y01 rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y11
+:Vivo_Y11 rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y12
+:Vivo_Y12 rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y12A
+:Vivo_Y12A rdf:type owl:NamedIndividual ,
+                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y12s
+:Vivo_Y12s rdf:type owl:NamedIndividual ,
+                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y15s
+:Vivo_Y15s rdf:type owl:NamedIndividual ,
+                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y17
+:Vivo_Y17 rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y1s
+:Vivo_Y1s rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y20
+:Vivo_Y20 rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y20_2021
+:Vivo_Y20_2021 rdf:type owl:NamedIndividual ,
+                        :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y20s
+:Vivo_Y20s rdf:type owl:NamedIndividual ,
+                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y21
+:Vivo_Y21 rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y21t
+:Vivo_Y21t rdf:type owl:NamedIndividual ,
+                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y30
+:Vivo_Y30 rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y31
+:Vivo_Y31 rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y33T
+:Vivo_Y33T rdf:type owl:NamedIndividual ,
+                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y33s
+:Vivo_Y33s rdf:type owl:NamedIndividual ,
+                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y51
+:Vivo_Y51 rdf:type owl:NamedIndividual ,
+                   :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y51s
+:Vivo_Y51s rdf:type owl:NamedIndividual ,
+                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y53s
+:Vivo_Y53s rdf:type owl:NamedIndividual ,
+                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y91D
+:Vivo_Y91D rdf:type owl:NamedIndividual ,
+                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Vivo_Y91c
+:Vivo_Y91c rdf:type owl:NamedIndividual ,
+                    :Mobile .
+
+
+###  http://www.hardwareonto.org#dynamic_AMOLED
+:dynamic_AMOLED rdf:type owl:NamedIndividual ,
+                         :Display .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_A10
+:samsung_gallexy_A10 rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_A11
+:samsung_gallexy_A11 rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_A12
+:samsung_gallexy_A12 rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_A30
+:samsung_gallexy_A30 rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_A31
+:samsung_gallexy_A31 rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_A32
+:samsung_gallexy_A32 rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_A50
+:samsung_gallexy_A50 rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_A51
+:samsung_gallexy_A51 rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_A52
+:samsung_gallexy_A52 rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_A70
+:samsung_gallexy_A70 rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_A71
+:samsung_gallexy_A71 rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_A72
+:samsung_gallexy_A72 rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_Z_flip3
+:samsung_gallexy_Z_flip3 rdf:type owl:NamedIndividual ,
+                                  :Mobile ;
+                         :isFromCompany :Samsung .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_note20
+:samsung_gallexy_note20 rdf:type owl:NamedIndividual ,
+                                 :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_note20ultra
+:samsung_gallexy_note20ultra rdf:type owl:NamedIndividual ,
+                                      :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_s10
+:samsung_gallexy_s10 rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_s10plus
+:samsung_gallexy_s10plus rdf:type owl:NamedIndividual ,
+                                  :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_s20FE
+:samsung_gallexy_s20FE rdf:type owl:NamedIndividual ,
+                                :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_s21
+:samsung_gallexy_s21 rdf:type owl:NamedIndividual ,
+                              :Mobile .
+
+
+###  http://www.hardwareonto.org#samsung_gallexy_s21_plus
+:samsung_gallexy_s21_plus rdf:type owl:NamedIndividual ,
+                                   :Mobile ;
+                          :isFromCompany :Samsung .
+
+
+###  http://www.hardwareonto.org#sterio_speakers
+:sterio_speakers rdf:type owl:NamedIndividual ,
+                          :Speaker .
+
+
+###  http://www.hardwareonto.org#super_AMOLED
+:super_AMOLED rdf:type owl:NamedIndividual ,
+                       :Display .
+
+
+###  http://www.hardwareonto.org#108MP
+<http://www.hardwareonto.org#108MP> rdf:type owl:NamedIndividual ,
+                                             :rear .
+
+
+###  http://www.hardwareonto.org#12GB
+<http://www.hardwareonto.org#12GB> rdf:type owl:NamedIndividual ,
+                                            :RAM .
+
+
+###  http://www.hardwareonto.org#12MP
+<http://www.hardwareonto.org#12MP> rdf:type owl:NamedIndividual ,
+                                            :rear .
+
+
+###  http://www.hardwareonto.org#128GB
+<http://www.hardwareonto.org#128GB> rdf:type owl:NamedIndividual ,
+                                             :ROM .
+
+
+###  http://www.hardwareonto.org#13MP
+<http://www.hardwareonto.org#13MP> rdf:type owl:NamedIndividual ,
+                                            :rear .
+
+
+###  http://www.hardwareonto.org#256GB
+<http://www.hardwareonto.org#256GB> rdf:type owl:NamedIndividual ,
+                                             :ROM .
+
+
+###  http://www.hardwareonto.org#3GB
+<http://www.hardwareonto.org#3GB> rdf:type owl:NamedIndividual ,
+                                           :RAM .
+
+
+###  http://www.hardwareonto.org#32GB
+<http://www.hardwareonto.org#32GB> rdf:type owl:NamedIndividual ,
+                                            :ROM .
+
+
+###  http://www.hardwareonto.org#32bit/384kHz
+<http://www.hardwareonto.org#32bit/384kHz> rdf:type owl:NamedIndividual ,
+                                                    :Speaker .
+
+
+###  http://www.hardwareonto.org#4MP
+<http://www.hardwareonto.org#4MP> rdf:type owl:NamedIndividual ,
+                                           :front .
+
+
+###  http://www.hardwareonto.org#40MP
+<http://www.hardwareonto.org#40MP> rdf:type owl:NamedIndividual ,
+                                            :front .
+
+
+###  http://www.hardwareonto.org#50MP
+<http://www.hardwareonto.org#50MP> rdf:type owl:NamedIndividual ,
+                                            :rear .
+
+
+###  http://www.hardwareonto.org#8GB
+<http://www.hardwareonto.org#8GB> rdf:type owl:NamedIndividual ,
+                                           :RAM .
+
+
+###  http://www.hardwareonto.org#8MP
+<http://www.hardwareonto.org#8MP> rdf:type owl:NamedIndividual ,
+                                           :front .
+
+
+###  http://www.hardwareonto.org#Huawei_Honor_7_Price_&_Specs
+<http://www.hardwareonto.org#Huawei_Honor_7_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_ShotX_Price_&_Specs
+<http://www.hardwareonto.org#Huawei_ShotX_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y5_Prime_2018_Price_&_Specs
+<http://www.hardwareonto.org#Huawei_Y5_Prime_2018_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                          :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y6_Prime_2018_Price_&_Specs
+<http://www.hardwareonto.org#Huawei_Y6_Prime_2018_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                          :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y7_Prime_2018_Price_&_Specs
+<http://www.hardwareonto.org#Huawei_Y7_Prime_2018_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                          :Mobile .
+
+
+###  http://www.hardwareonto.org#Huawei_Y9_2018_Price_&_Specs
+<http://www.hardwareonto.org#Huawei_Y9_2018_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                    :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A6_Plus_2018_Price_&_Specs
+<http://www.hardwareonto.org#Samsung_Galaxy_A6_Plus_2018_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                                 :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_A6_Price_&_Specs
+<http://www.hardwareonto.org#Samsung_Galaxy_A6_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                       :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Core_Prime_Price_&_Specs
+<http://www.hardwareonto.org#Samsung_Galaxy_Core_Prime_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                               :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_J5_Prime_Price_&_Specs
+<http://www.hardwareonto.org#Samsung_Galaxy_J5_Prime_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                             :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_J7_Pro_64GB_Price_&_Specs
+<http://www.hardwareonto.org#Samsung_Galaxy_J7_Pro_64GB_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                                :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_Note_5_Price_&_Specs
+<http://www.hardwareonto.org#Samsung_Galaxy_Note_5_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                           :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_S7_Edge_128GB_Price_&_Specs
+<http://www.hardwareonto.org#Samsung_Galaxy_S7_Edge_128GB_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                                  :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_S7_Edge_Price_&_Specs
+<http://www.hardwareonto.org#Samsung_Galaxy_S7_Edge_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                            :Mobile .
+
+
+###  http://www.hardwareonto.org#Samsung_Galaxy_S9_Plus_128GB_Price_&_Specs
+<http://www.hardwareonto.org#Samsung_Galaxy_S9_Plus_128GB_Price_&_Specs> rdf:type owl:NamedIndividual ,
+                                                                                  :Mobile .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
